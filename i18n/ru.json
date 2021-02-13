@@ -1,0 +1,23 @@
+{
+  "MY_PALETTE_SAVE": "Сохранить палитру",
+  "MY_PALETTE_RESET": "Сбросить палитру",
+  "MY_PALETTE_NAME_LESS_CREATE_PROFILE": "Нет, напишите имя меньше 32 символов",
+  "MY_PALETTE_GIVE_A_NAME": "Дай имя",
+  "MY_PALETTE_ADD_REMIX": "Добавить ремикс",
+  "MY_PALETTE_NEW_REMIX": "Новый ремикс",
+  "MY_PALETTE_REMOVE_REMIX": "Удалить ремикс",
+  "MY_PALETTE_NOT_SELF_THEME": "Ремикс не от этой темы. Убедитесь, что тема установлена, при повтором нажатии ремикс будет сохранён",
+  "MY_PALETTE_INVALID_REMIX": "Недействительный ремикс",
+  "MY_PALETTE_NAME_NEW_REMIX": "Имя нового ремикса",
+  "MY_PALETTE_SAVE_AS_REMIX": "Сохранить как ремикс",
+  "MY_PALETTE_NATIVE_DISCORD_THEME": "Родная тема дискорда",
+  "MY_PALETTE_THEME_NOT_FOUND": "Тема не найдена",
+  "MY_PALETTE_INSTALLED": "Установлена",
+  "MY_PALETTE_UNKNOWN": "Неизвестный или неподдерживаемый тип. Только ручной ввод",
+  "MY_PALETTE_SAVE_FORMAT": "Формат сохранения",
+  "MY_PALETTE_BAD_SUPPORT_RGBA": "Плохая поддержка RGBA. Канал альфа равен 1",
+  "MY_PALETTE_ABSOLUTE": "Абсольный",
+  "MY_PALETTE_RELATIVE": "Относительный",
+  "MY_PALETTE_CONFIRM": "Подтверждаю",
+  "MY_PALETTE_DELETE_ALL_CHANGES": "Удалить все изменения ?"
+}

@@ -1,0 +1,23 @@
+{
+  "MY_PALETTE_SAVE": "Save palette",
+  "MY_PALETTE_RESET": "Reset palette",
+  "MY_PALETTE_NAME_LESS_CREATE_PROFILE": "Nope, write name less than 32",
+  "MY_PALETTE_GIVE_A_NAME": "Give a name",
+  "MY_PALETTE_ADD_REMIX": "Add remix",
+  "MY_PALETTE_NEW_REMIX": "New remix",
+  "MY_PALETTE_REMOVE_REMIX": "Remove remix",
+  "MY_PALETTE_NOT_SELF_THEME": "The remix is not from this theme. Make sure the theme is installed, pressing again the remix will save",
+  "MY_PALETTE_INVALID_REMIX": "Invalid Remix",
+  "MY_PALETTE_NAME_NEW_REMIX": "The name of the new remix",
+  "MY_PALETTE_SAVE_AS_REMIX": "Save as Remix",
+  "MY_PALETTE_NATIVE_DISCORD_THEME": "Native Discord Theme",
+  "MY_PALETTE_THEME_NOT_FOUND": "Theme not found",
+  "MY_PALETTE_INSTALLED": "Installed",
+  "MY_PALETTE_UNKNOWN": "Unknown or unsupported type. Manual input only",
+  "MY_PALETTE_SAVE_FORMAT": "Save format",
+  "MY_PALETTE_BAD_SUPPORT_RGBA": "Bad RGBA support. Alpha channel is 1",
+  "MY_PALETTE_ABSOLUTE": "Absolute",
+  "MY_PALETTE_RELATIVE": "Relative",
+  "MY_PALETTE_CONFIRM": "Confirm",
+  "MY_PALETTE_DELETE_ALL_CHANGES": "Delete all changes ?"
+}

@@ -1,0 +1,107 @@
+.my-palette-buttons {
+  button {
+    margin-left: 10px;
+  }
+}
+.my-palette-discordTheme-name {
+  display: flex;
+  align-items: center;
+
+  .icon{
+    display: flex;
+    svg {
+      margin-right: 8px;
+    }
+  }
+}
+.powercord-quickcss-editor.children{
+  padding: 20px 8px 20px 20px;
+  overflow: auto;
+  &:after{
+    content: none;
+  }
+}
+.my-palette-input {
+  display: flex;
+  margin-bottom: 5%;
+
+  :first-child {
+    flex-basis: 100%;
+  }
+
+  h5 {
+    margin-bottom: 3px;
+  }
+
+  .input-wrap {
+    display: flex;
+    padding: 2px;
+    margin-bottom: 4px;
+    input {
+      flex-basis: 100%;
+      border: none;
+      background-color: transparent;
+      color: inherit;
+      font-size: inherit;
+    }
+    svg {
+      height: 23px;
+      width: 23px;
+      margin-right: 5px;
+    }
+  }
+
+  .color-preview {
+    width: 50px;
+    background-color: var(--color);
+    margin: 4px 0 15px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 0 10px 5px var(--focus-primary);
+    }
+  }
+}
+.my-palette-modal{
+  .color-picker-wrap {
+    [class^=container-] {
+      flex-wrap: nowrap;
+    }
+
+    [role="radiogroup"] {
+      display: flex;
+
+      [class^=item-] {
+        margin: 0 14px;
+        flex: 2;
+      }
+    }
+  }
+}
+.my-palette-profiles-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%;
+}
+.my-palette-profile-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    display: flex;
+    p {
+      margin: 0;
+      padding-left: 8px;
+      font-size: 80%;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    > div {
+      padding-left: 10px;
+    }
+  }
+}

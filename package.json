@@ -1,0 +1,10 @@
+{
+  "name": "theme-settings",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Xinos",
+  "license": "MIT",
+  "dependencies": {
+    "css": "^3.0.0"
+  }
+}
