@@ -36,7 +36,7 @@ class Profiles extends React.PureComponent {
         }}
       >
         <div className='my-palette-profiles-head'>
-          <div>Profiles</div>
+          <div>{Messages.MY_PALETTE_REMIXES}</div>
           <Tooltip text={Messages.ADD}>
             <Clickable onClick={() => this.openAddModal()}>
               <PlusAlt/>

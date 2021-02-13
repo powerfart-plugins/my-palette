@@ -1,6 +1,6 @@
 const { Plugin } = require('powercord/entities');
 const { inject, uninject } = require('powercord/injector');
-const { React, getModule, i18n: { Messages } } = require('powercord/webpack');
+const { React, getModule } = require('powercord/webpack');
 
 const i18n = require('./i18n');
 const { registerSettings } = require('./components/Settings');
@@ -31,7 +31,7 @@ module.exports = class ThemeSettings extends Plugin {
     inject('my-palette-snippet-profile', MiniPopover, 'default', ([ { children: [ { props } ] } ], res) => {
       const { message, channel } = props;
 
-      if (channel && channel.id === '610035443940982794') {
+      if (channel && channel.id === '810165518744420372') {
         res.props.children.unshift(
           React.createElement(SnippetButton, { Config, Profiles, message })
         );

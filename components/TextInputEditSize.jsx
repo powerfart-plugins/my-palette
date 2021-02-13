@@ -28,7 +28,7 @@ module.exports = class EditColorPicker extends React.PureComponent { // TODO ÑÐ
             this.setState({ saveAs: value });
           }}
         >
-          {'Save format'}
+          {Messages.MY_PALETTE_SAVE_FORMAT}
         </RadioGroup>
         {(this.state.saveAs === 'abs') && this.renderSliders(3, 'px')}
         {(this.state.saveAs === 'rlt') && this.renderSliders(2, '%', [ 10, 11 ])}

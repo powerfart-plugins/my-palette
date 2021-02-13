@@ -94,7 +94,7 @@ module.exports = class EditColorPicker extends React.PureComponent {
   async _updateUserPalette (color, v) {
     const colors = this.props.settings.get('lastSelectedColors', ROLE_COLORS);
 
-    if (colors.includes(color) && (v === null)) {
+    if (colors.includes(color) || (v === null)) {
       return;
     }
     this.props.settings.update('lastSelectedColors', [ color, ...colors.slice(0, colors.length - 1) ]);
