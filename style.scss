@@ -20,6 +20,17 @@
   &:after{
     content: none;
   }
+
+  .reference {
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    .button {
+      width: 20px;
+      margin: 0 10px;
+    }
+  }
 }
 .my-palette-input {
   display: flex;

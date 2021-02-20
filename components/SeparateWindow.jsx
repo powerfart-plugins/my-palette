@@ -12,6 +12,7 @@ const { scrollerBas, thin } = getModule([ 'scrollerBase' ], false);
 const { backdrop } = getModule([ 'backdrop' ], false);
 const PlusAlt = getModuleByDisplayName('PlusAlt', false);
 const Confirm = getModuleByDisplayName('ConfirmModal', false);
+const HelpMessage = getModuleByDisplayName('HelpMessage', false);
 
 // const Modals = getModuleByDisplayName('Modals', false);
 
@@ -28,12 +29,13 @@ const modalStyle = {
 
 
 class SeparateWindow extends React.PureComponent {
-  constructor () {
+  constructor (props) {
     super();
 
     this.ref = React.createRef();
     this.state = {
-      modalThis: null
+      modalThis: null,
+      showReference: !props.getSetting('hideReferenceV1', false)
     };
 
     this._saveResizeHeight = global._.debounce(this._saveResizeHeight.bind(this), 500);
@@ -56,6 +58,12 @@ class SeparateWindow extends React.PureComponent {
           'powercord-quickcss', this.props.popout && 'popout', !this.props.popout && this.props.guestWindow && 'popped-out'
         ].filter(Boolean).join(' ')}
         style={{ '--editor-height': `${this.props.getSetting('mpm-height', 500)}px` }}
+        // onKeyPress={({ nativeEvent: { code }, ctrlKey }) => {
+        //   if (code === 'KeyS' && ctrlKey) {
+        //     console.log('save');
+        //     this.props.save();
+        //   }
+        // }}
         ref={this.ref}
       >
 
@@ -120,14 +128,28 @@ class SeparateWindow extends React.PureComponent {
               </div>
             </div>
             <div className={`powercord-quickcss-editor children ${scrollerBas} ${thin}`}>
+
+              { this.state.showReference &&
+              <div className='reference'>
+                <HelpMessage messageType={1}>
+                  {Messages.MY_PALETTE_REFERENCE}
+                </HelpMessage>
+                <Clickable
+                  onClick={() => this.setState(
+                    { showReference: false },
+                    () => this.props.updateSetting('hideReferenceV1', true)
+                  )}
+                  className='button'
+                >
+                  <Close/>
+                </Clickable>
+              </div>}
+
               {this.props.children({
                 open: this.openModal,
                 close: this.closeModal
               })}
-            </div>
-            <div className='powercord-quickcss-footer'>
-              {/* <span>{Messages.POWERCORD_QUICKCSS_AUTOCOMPLETE}</span>*/}
-              {/* <span>CodeMirror v{require('codemirror').version}</span>*/}
+
             </div>
             {!this.props.popout && <div className='powercord-quickcss-resizer' onMouseDown={this._handleResizeBegin}/>}
           </>}

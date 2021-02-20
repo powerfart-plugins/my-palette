@@ -13,12 +13,13 @@
   "MY_PALETTE_SAVE_AS_REMIX": "Сохранить как ремикс",
   "MY_PALETTE_NATIVE_DISCORD_THEME": "Родная тема дискорда",
   "MY_PALETTE_THEME_NOT_FOUND": "Тема не найдена",
-  "MY_PALETTE_INSTALLED": "Установлена",
+  "MY_PALETTE_INSTALLED": "Установлен",
   "MY_PALETTE_UNKNOWN": "Неизвестный или неподдерживаемый тип. Только ручной ввод",
   "MY_PALETTE_SAVE_FORMAT": "Формат сохранения",
-  "MY_PALETTE_BAD_SUPPORT_RGBA": "Плохая поддержка RGBA. Канал альфа равен 1",
+  "MY_PALETTE_BAD_SUPPORT_RGBA": "Плохая поддержка RGBA. Альфа-канал равен 1",
   "MY_PALETTE_ABSOLUTE": "Абсольный",
   "MY_PALETTE_RELATIVE": "Относительный",
   "MY_PALETTE_CONFIRM": "Подтверждаю",
-  "MY_PALETTE_DELETE_ALL_CHANGES": "Удалить все изменения ?"
+  "MY_PALETTE_DELETE_ALL_CHANGES": "Удалить все изменения ?",
+  "MY_PALETTE_REFERENCE": "Нажмите на имя переменной, чтобы скопировать как CSS var"
 }

@@ -20,5 +20,6 @@
   "MY_PALETTE_ABSOLUTE": "Absolute",
   "MY_PALETTE_RELATIVE": "Relative",
   "MY_PALETTE_CONFIRM": "Confirm",
-  "MY_PALETTE_DELETE_ALL_CHANGES": "Delete all changes ?"
+  "MY_PALETTE_DELETE_ALL_CHANGES": "Delete all changes ?",
+  "MY_PALETTE_REFERENCE": "Click on variable name to copy as CSS var"
 }

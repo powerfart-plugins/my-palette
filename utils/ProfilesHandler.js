@@ -1,10 +1,9 @@
 const { clipboard } = require('electron');
-const { writeFile, readFile } = require('fs').promises;
+const { existsSync, promises: { writeFile, readFile } } = require('fs');
 const { join } = require('path');
 
 const filePath = join(__dirname, '..', 'profiles.json');
 const PROFILE_REGEX = /^(```css\s)?\/\*\s?(.+?)\s\((.+?)\)\s?\*\/\s+(.+?:\s[^`]+;?\s?)+?(```)?$/;
-
 
 module.exports = class MyPaletteProfilesHandler {
   constructor () {
@@ -12,9 +11,13 @@ module.exports = class MyPaletteProfilesHandler {
   }
 
   load () {
-    readFile(filePath, 'utf8')
-      .then((file) => this._profiles = JSON.parse(file))
-      .catch(console.error);
+    if (existsSync(filePath)) {
+      readFile(filePath, 'utf8')
+        .then((file) => this._profiles = JSON.parse(file))
+        .catch(console.error);
+    } else {
+      this._profiles = {};
+    }
   }
 
   getByThemeKey (key) {

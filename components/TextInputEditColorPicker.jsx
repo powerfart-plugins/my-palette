@@ -66,10 +66,9 @@ module.exports = class EditColorPicker extends React.PureComponent {
         />
 
         { (this.state.saveAs === 'rgba') && <>
-          <HelpMessage
-            children={Messages.MY_PALETTE_BAD_SUPPORT_RGBA}
-            messageType={0}
-          />
+          <HelpMessage messageType={0}>
+            {Messages.MY_PALETTE_BAD_SUPPORT_RGBA}
+          </HelpMessage>
           <Divider/>
         </>}
       </div>

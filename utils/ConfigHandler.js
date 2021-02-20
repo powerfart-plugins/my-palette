@@ -1,4 +1,4 @@
-const { writeFile, readFile } = require('fs').promises;
+const { existsSync, promises: { writeFile, readFile } } = require('fs');
 const { join } = require('path');
 const CSS = require('css');
 
@@ -23,9 +23,13 @@ module.exports = class MyPaletteConfigHandler {
     this._element = document.createElement('style');
     this._element.id = id;
 
-    readFile(filePath, 'utf8')
-      .then((data) => this._applyConfig(data))
-      .catch(console.error);
+    if (existsSync(filePath)) {
+      readFile(filePath, 'utf8')
+        .then((data) => this._applyConfig(data))
+        .catch(console.error);
+    } else {
+      this._applyConfig(null);
+    }
   }
 
   removeStyle () {
@@ -93,8 +97,12 @@ module.exports = class MyPaletteConfigHandler {
     this.save();
   }
 
-  save () {
-    writeFile(filePath, CSS.stringify(this._stylesheetParsed))
+  async save () {
+    let data = CSS.stringify(this._stylesheetParsed);
+    if (!data.includes(':root')) {
+      data += ':root {}\n';
+    }
+    writeFile(filePath, data)
       .catch(console.error);
   }
 
@@ -110,14 +118,14 @@ module.exports = class MyPaletteConfigHandler {
       .join('; ');
   }
 
-  _applyConfig (file) {
-    if (!file) {
-      file = ':root {}';
+  _applyConfig (fileData) {
+    if (!fileData) {
+      fileData = ':root {}';
     }
 
-    this.stylesheet = file;
+    this.stylesheet = fileData;
     document.head.appendChild(this._element);
-    this._stylesheetParsed = CSS.parse(file);
+    this._stylesheetParsed = CSS.parse(fileData);
 
     const rootIndex = this._stylesheetParsed.stylesheet.rules
       .findIndex((rule) => (rule.type === 'rule') && (rule.selectors.includes(':root')));
