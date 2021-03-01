@@ -10,7 +10,7 @@ const Config = new (require('./utils/ConfigHandler'))();
 const Profiles = new (require('./utils/ProfilesHandler'))();
 
 /* eslint-disable object-property-newline */
-module.exports = class ThemeSettings extends Plugin {
+module.exports = class MyPalette extends Plugin {
   async startPlugin () {
     powercord.api.i18n.loadAllStrings(i18n);
     this.loadStylesheet('style.scss');
