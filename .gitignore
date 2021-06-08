@@ -2,3 +2,5 @@
 config.css
 profiles.json
 desktop.ini
+node_modules
+package-look.json

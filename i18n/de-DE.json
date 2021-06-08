@@ -20,5 +20,9 @@
   "MY_PALETTE_ABSOLUTE": "Absolut",
   "MY_PALETTE_RELATIVE": "Relativ",
   "MY_PALETTE_CONFIRM": "Bestätigen",
-  "MY_PALETTE_DELETE_ALL_CHANGES": "Alle Änderungen löschen?"
+  "MY_PALETTE_DELETE_ALL_CHANGES": "Alle Änderungen löschen?",
+  "MY_PALETTE_INSTALL_DEPS_NEED": "{name} Plugin-Abhängigkeiten müssen installiert werden",
+  "MY_PALETTE_INSTALL_DEPS": "installieren",
+  "MY_PALETTE_INSTALL_DEPS_READY": "Plugin bereit",
+  "MY_PALETTE_INSTALL_DEPS_ERROR": "Fehler bei der Installation von Abhängigkeiten. Bitte kontaktieren Sie mich ({devName})"
 }

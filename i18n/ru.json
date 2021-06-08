@@ -21,5 +21,9 @@
   "MY_PALETTE_RELATIVE": "Относительный",
   "MY_PALETTE_CONFIRM": "Подтверждаю",
   "MY_PALETTE_DELETE_ALL_CHANGES": "Удалить все изменения ?",
-  "MY_PALETTE_REFERENCE": "Нажмите на имя переменной, чтобы скопировать как CSS var"
+  "MY_PALETTE_REFERENCE": "Нажмите на имя переменной, чтобы скопировать как CSS var",
+  "MY_PALETTE_INSTALL_DEPS_NEED": "Плагин \"{name}\" нуждается в установке зависимостей",
+  "MY_PALETTE_INSTALL_DEPS": "установить",
+  "MY_PALETTE_INSTALL_DEPS_READY": "Плагин готов",
+  "MY_PALETTE_INSTALL_DEPS_ERROR": "Ошибки при установке зависимостей. Пожалуйста свяжитесь со мной ({devName})"
 }

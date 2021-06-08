@@ -27,13 +27,13 @@ class Settings extends React.PureComponent {
 
   render () {
     return [ ...this.items ].map(([ themeKey, theme ]) => (
-      <Category2
+      <this.Category2
         name={this.renderCategoryName(themeKey)}
         opened={false}
       >
         { this.renderProfiles(themeKey) }
         { this.renderTheme(theme, themeKey) }
-      </Category2>
+      </this.Category2>
     ));
   }
 

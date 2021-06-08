@@ -21,5 +21,9 @@
   "MY_PALETTE_RELATIVE": "Relative",
   "MY_PALETTE_CONFIRM": "Confirm",
   "MY_PALETTE_DELETE_ALL_CHANGES": "Delete all changes ?",
-  "MY_PALETTE_REFERENCE": "Click on variable name to copy as CSS var"
+  "MY_PALETTE_REFERENCE": "Click on variable name to copy as CSS var",
+  "MY_PALETTE_INSTALL_DEPS_NEED": "\"{name}\" plugin dependencies need to be installed",
+  "MY_PALETTE_INSTALL_DEPS": "install",
+  "MY_PALETTE_INSTALL_DEPS_READY": "Plugin ready",
+  "MY_PALETTE_INSTALL_DEPS_ERROR": "Errors while installing dependencies. Please contact me ({devName})"
 }
