@@ -6,7 +6,7 @@ module.exports = class EditColorPicker extends React.PureComponent { // TODO —Å–
   constructor (props) {
     super(props);
 
-    const { value, defaultValue, isCssVar, convertBack } = props;
+    const { value, defaultValue, convertBack } = props;
 
     convertBack(() => this.convert());
     this.state = {
@@ -66,7 +66,6 @@ module.exports = class EditColorPicker extends React.PureComponent { // TODO —Å–
     return v
       .replace(/(\d*).*/, '$1')
       .split('')
-      // .reverse()
       .map(Number);
   }
 

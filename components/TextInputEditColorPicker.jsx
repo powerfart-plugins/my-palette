@@ -1,7 +1,7 @@
 const { React, getModuleByDisplayName, constants: { DEFAULT_ROLE_COLOR, ROLE_COLORS }, i18n: { Messages } } = require('powercord/webpack');
 const { Divider, settings: { ColorPickerInput, RadioGroup, CheckboxInput } } = require('powercord/components');
 
-const { ColorUtils } = require('../utils');
+const ColorUtils = require('../utils/ColorUtils');
 
 const HelpMessage = getModuleByDisplayName('HelpMessage', false);
 

@@ -1,60 +1,48 @@
 const { clipboard } = require('electron');
-const { Category } = require('powercord/components/settings');
 const { React, getModule, getModuleByDisplayName, i18n: { Messages } } = require('powercord/webpack');
-const { PopoutWindow, Tooltip, Clickable } = require('powercord/components');
+const { PopoutWindow, Tooltip, Clickable, settings: { Category } } = require('powercord/components');
 
-// const { TextInputEdit, SeparateWindow } = require('../components');
 const SeparateWindow = require('./SeparateWindow');
 const TextInputEdit = require('./TextInputEdit');
 const Profiles  = require('./Profiles');
 const CreateProfileByPalette = require('./CreateProfileByPalette');
-
-const { themesParser: { getThemesVars }, types: { getType } } = require('../utils');
+const ThemesParser  = require('../modules/ThemesParser');
+const { getType }  = require('../utils/types');
 
 const FavoriteFilled = getModuleByDisplayName('FavoriteFilled', false);
 
-/* eslint-disable object-property-newline */
+/* eslint-disable object-property-newline,  no-undefined, no-use-before-define */
 class Settings extends React.PureComponent {
   constructor (props) {
     super(props);
 
-    this.items = getThemesVars();
+    this.items = ThemesParser.themesVars;
     this.state = {
-      isOpened: Object.fromEntries(
-        [ ...this.items ]
-          .map(([ key ]) => [ key, false ])
-      ),
       themes: Object.fromEntries(
         [ ...this.items ]
           .map(([ key ]) => [ key, props.Config.getTheme(key) ])
       )
     };
-
-    this.renderCategory = this.renderCategory.bind(this);
   }
 
   render () {
-    return [ ...this.items ].map(this.renderCategory);
-  }
-
-  renderCategory ([ themeKey, theme ]) {
-    return (
-      <Category
+    return [ ...this.items ].map(([ themeKey, theme ]) => (
+      <Category2
         name={this.renderCategoryName(themeKey)}
-        opened={this.state.isOpened[themeKey]}
-        onChange={(value) => {
-          this.setState((prevState) => ({
-            isOpened: {
-              ...prevState.isOpened,
-              [themeKey]: value
-            }
-          }));
-        }}
+        opened={false}
       >
         { this.renderProfiles(themeKey) }
         { this.renderTheme(theme, themeKey) }
-      </Category>
-    );
+      </Category2>
+    ));
+  }
+
+  Category2 (props) {
+    const def = (props.opened === undefined) ? true : props.opened;
+    const [ opened, onChange ] = React.useState(def);
+    props = { ...props, onChange, opened };
+
+    return <Category {...props}/>;
   }
 
   renderCategoryName (key) {
@@ -76,8 +64,12 @@ class Settings extends React.PureComponent {
   renderTheme (items, themeKey) {
     const props = {
       save: () => this.props.Config.save(),
-      reset: () => this._reset(themeKey),
-      saveAsProfile: (...args) => this._saveAsProfile(...args, themeKey)
+      reset: () => {
+        this.props.Config.reset(themeKey);
+        this.props.Config.setParam(themeKey, 'profile', null);
+        this.updateStateTheme(themeKey);
+      },
+      saveAsProfile: (...args) => this.saveAsProfile(...args, themeKey)
     };
     const renderThemeItems = (...args) => this.renderThemeItems(themeKey, items, args);
 
@@ -106,7 +98,7 @@ class Settings extends React.PureComponent {
     const updateValue = (key, val) => {
       this.props.Config.setByKey(themeKey, key, val);
       this.props.Config.setParam(themeKey, 'profile', null);
-      this._updateStateTheme(themeKey);
+      this.updateStateTheme(themeKey);
     };
     const getConfigValue = (key) => {
       const res = theme.find((e) => e.property === `--${key}`);
@@ -175,7 +167,7 @@ class Settings extends React.PureComponent {
           const pIndex = ProfilesHand.add(key, { name, vars });
           Config.setParam(key, 'profile', pIndex);
           Config.applyVars(key, vars);
-          this._updateStateTheme(key);
+          this.updateStateTheme(key);
           Config.save();
           return true;
         }}
@@ -183,12 +175,12 @@ class Settings extends React.PureComponent {
         onCopy={(v) => ProfilesHand.copy(key, v)}
         onRemove={(v) => {
           ProfilesHand.remove(key, v);
-          this._updateStateTheme(key);
+          this.updateStateTheme(key);
         }}
         onChange={(v) => {
           Config.setParam(key, 'profile', v);
           Config.applyVars(key, profiles[v].vars);
-          this._updateStateTheme(key);
+          this.updateStateTheme(key);
         }}
       />
     );
@@ -209,7 +201,7 @@ class Settings extends React.PureComponent {
     ));
   }
 
-  _saveAsProfile (open, close, key) {
+  saveAsProfile (open, close, key) {
     const vars = this.props.Config.getStrVars(key);
     if (!vars) {
       return;
@@ -220,14 +212,14 @@ class Settings extends React.PureComponent {
         save: (name) => {
           const pIndex = this.props.Profiles.add(key, { name, vars });
           this.props.Config.setParam(key, 'profile', pIndex);
-          this._updateStateTheme(key);
+          this.updateStateTheme(key);
           this.props.Config.save();
         }
       })
     ));
   }
 
-  _updateStateTheme (key) { // лакальный forceUpdate()
+  updateStateTheme (key) { // лакальный forceUpdate()
     this.setState((prevState) => ({
       themes: {
         ...prevState.themes,
@@ -235,16 +227,10 @@ class Settings extends React.PureComponent {
       }
     }));
   }
-
-  _reset (key) {
-    this.props.Config.reset(key);
-    this.props.Config.setParam(key, 'profile', null);
-    this._updateStateTheme(key);
-  }
 }
 
-function registerSettings (id, entityID, props) {
-  powercord.api.settings.registerSettings(id, {
+function registerSettings (entityID, props) {
+  powercord.api.settings.registerSettings('my-palette', {
     label: 'My Palette',
     category: entityID,
     render: (props2) => React.createElement(Settings, {

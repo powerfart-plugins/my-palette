@@ -3,7 +3,6 @@ const { Tooltip, Clickable } = require('powercord/components');
 
 const { input } = getModule([ 'input' ], false);
 const { h4, h5, defaultMarginh5 } = getModule([ 'h5', 'h4' ], false);
-const { description, formText } = getModule([ 'description', 'formText' ], false);
 const Pencil = getModuleByDisplayName('Pencil', false);
 
 const Modal = require('./Modal');

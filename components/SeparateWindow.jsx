@@ -6,10 +6,14 @@
 
 const { React, Flux, getModule, getModuleByDisplayName, i18n: { Messages } } = require('powercord/webpack');
 const { AsyncComponent, Clickable, Tooltip, Icons: { Pin, Unpin, Close, ExternalLink } } = require('powercord/components');
-const { Save, Reset } = require('./icons');
+
+const Reset = require('./icons/Reset');
+const Save = require('./icons/Save');
 
 const { scrollerBas, thin } = getModule([ 'scrollerBase' ], false);
 const { backdrop } = getModule([ 'backdrop' ], false);
+const { modal, inner } = getModule([ 'modal', 'inner' ], false);
+
 const PlusAlt = getModuleByDisplayName('PlusAlt', false);
 const Confirm = getModuleByDisplayName('ConfirmModal', false);
 const HelpMessage = getModuleByDisplayName('HelpMessage', false);
@@ -70,8 +74,8 @@ class SeparateWindow extends React.PureComponent {
         {this.state.modalThis && // среда для модальных окон
           <>
             <div className={backdrop} style={backdropStyle} onClick={this.closeModal}/>
-            <div className={'modal-3c3bKg'} style={modalStyle}>
-              <div className={'inner-1ilYF7'} role="dialog" tabIndex="-1" aria-modal="true">
+            <div className={modal} style={modalStyle}>
+              <div className={inner} role="dialog" tabIndex="-1" aria-modal="true">
                 {this.state.modalThis}
               </div>
             </div>
