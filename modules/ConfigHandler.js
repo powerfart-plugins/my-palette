@@ -1,6 +1,9 @@
 const { existsSync, promises: { writeFile, readFile } } = require('fs');
 const { join } = require('path');
 const CSS = require('css');
+const warn = `/* ----------------------------------------------------------------------------
+\tDo NOT CHANGE this file manually if you are not sure what you are doing
+---------------------------------------------------------------------------- */\n\n`;
 
 const filePath = join(__dirname, '..', 'config.css');
 
@@ -120,7 +123,7 @@ module.exports = class MyPaletteConfigHandler {
 
   _applyConfig (fileData) {
     if (!fileData) {
-      fileData = ':root {}';
+      fileData = `${warn}:root {}`;
     }
 
     this.stylesheet = fileData;
