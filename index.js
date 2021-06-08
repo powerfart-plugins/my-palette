@@ -10,8 +10,12 @@ const installDependencies = require('./utils/installDependencies');
 
 const ConfigHandler = require('./modules/ConfigHandler');
 const ProfilesHandler = require('./modules/ProfilesHandler');
+const ChangeLog = require('./modules/ChangeLog');
+
+const changelog = require('./changelog.json');
 
 /* eslint-disable object-property-newline */
+// noinspection JSUnusedGlobalSymbols
 module.exports = class MyPalette extends Plugin {
   constructor () {
     super();
@@ -24,6 +28,12 @@ module.exports = class MyPalette extends Plugin {
       this.initError.name = 'need npm dependencies';
       this.initError.code = 'NEED_NPM_DEPENDENCIES';
     }
+    this.ChangeLog = new ChangeLog({
+      config: changelog,
+      currentVer: this.manifest.version,
+      lastCheckedVer: this.settings.get('lastChangeLogVersion', '0'),
+      updateLastCheckedVer: (v) => this.settings.set('lastChangeLogVersion', v)
+    });
   }
 
   async startPlugin () {
@@ -35,6 +45,7 @@ module.exports = class MyPalette extends Plugin {
       return;
     }
 
+    this.ChangeLog.init();
     registerSettings(this.entityID, { Config: this.Config, Profiles: this.Profiles });
     this.Config.appendStyle('config-my-palette');
     this.Profiles.load();

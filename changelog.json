@@ -1,0 +1,31 @@
+{
+  "date": "2021-06-08",
+  "image": "https://cdn.discordapp.com/attachments/845949403474427914/851722691723788308/gears.jpg",
+  "body": [
+    {
+      "type": "improved",
+      "header": "Interview",
+      "content": [
+        "I want to remove the profiles (remix) function. This was done for another function that works like js / css-snipptes, but only with a palette between users, I noticed that this function is not popular. I have already removed the apply palette function, now I think that profiles are not needed either. [vote](https://docs.google.com/forms/d/1fhtUJ6dpoFmu4SKkTnAt5juocz5WNooLTkHpkNq2cXE)"
+      ]
+    },
+    {
+      "type": "added",
+      "header": "New",
+      "content": [
+        [
+          "Installing dependencies on the client"
+        ]
+      ]
+    },
+    {
+      "type": "fixed",
+      "header": "Bug fixes",
+      "content": [
+        [
+          "Fixed some bugs"
+        ]
+      ]
+    }
+  ]
+}
