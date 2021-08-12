@@ -2,7 +2,7 @@
 Adds new UI (in your settings tab) for customizing themes 
 
 
-![img0](https://userxinos.github.io/my-palette/previews/image0.png)
+![img0](previews/image0.png)
 
 A more convenient way to customize your theme variables.
 - In settings or in a floating window
@@ -12,4 +12,4 @@ A more convenient way to customize your theme variables.
 ### More previews
 | 1             | 2         
 | ------------- |:-------------:|
-![img1](https://userxinos.github.io/my-palette/previews/image1.png) | ![img2](https://userxinos.github.io/my-palette/previews/image2.png)
+![img1](previews/image1.png) | ![img2](previews/image2.png)
