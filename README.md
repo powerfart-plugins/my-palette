@@ -1,5 +1,5 @@
 # My palette
-A [Powercord](https://powercord.dev/) plugin that adds new UI (in your settings tab) for customizing themes 
+Adds new UI (in your settings tab) for customizing themes 
 
 
 ![img0](https://userxinos.github.io/my-palette/previews/image0.png)
