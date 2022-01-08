@@ -12,7 +12,8 @@ const Save = require('./icons/Save');
 
 const { scrollerBas, thin } = getModule([ 'scrollerBase' ], false);
 const { backdrop } = getModule([ 'backdrop' ], false);
-const { modal, inner } = getModule([ 'modal', 'inner' ], false);
+const { modal } = getModule([ 'modal' ], false);
+const { inner } = getModule([ 'inner' ], false);
 
 const PlusAlt = getModuleByDisplayName('PlusAlt', false);
 const Confirm = getModuleByDisplayName('ConfirmModal', false);
