@@ -1,4 +1,9 @@
 # My palette
+
+> **Warning**
+> Powercord client is EOL and no longer works with latest versions of Discord
+
+
 Adds new UI (in your settings tab) for customizing themes 
 
 
